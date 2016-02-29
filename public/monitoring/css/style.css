@@ -22,6 +22,13 @@ body {
 	margin-top: 10px;
 }
 
+/* Testin new nodes */
+.nodesCanvas {
+	background-color: #FFF;
+	width: 100%;
+	padding: 10px;
+}
+
 /* Styles */
 
 .btn {
@@ -110,7 +117,7 @@ body {
 
 input, button, select, option, textarea {
 	color: #333333;
-	font-size:13px;
+	font-size:14px;
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 	margin: 2px;
 }
