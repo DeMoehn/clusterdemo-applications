@@ -8,12 +8,9 @@ $( document ).ready(function() {
 
   // -- Database Setup (Variables come from config File) --
   var cloudant_url = 'http://192.168.1.110'; // Set the general Cloudant URL
-  //var cloudant_auth = btoa(user + ':' + pass); // Creates a Base64 String of the User and Pass
 
   // -- Canvas Setup --
   var c = document.getElementById("nodesCanvas"); // Get Canvas
-  var ctx = c.getContext("2d"); // Get Context
-  var cState; // CanvasState Variable
 
   // -- Variables setup --
   var nodeArr = []; // Save Canvas-Nodes
