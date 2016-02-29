@@ -26,7 +26,8 @@ body {
 .nodesCanvas {
 	background-color: #FFF;
 	width: 100%;
-	padding: 10px;
+	min-height: 200px;
+	margin: 10px;
 }
 
 /* Styles */

@@ -10,65 +10,47 @@ $( document ).ready(function() {
   var cloudant_url = 'http://192.168.1.110'; // Set the general Cloudant URL
 
   // -- Canvas Setup --
-  var c = document.getElementById("nodesCanvas"); // Get Canvas
+  var c = $('#nodesCanvas'); // Get Canvas
 
   // -- Variables setup --
-  var nodeArr = []; // Save Canvas-Nodes
-  var nodesUp = []; // Save nodes which are up
-  var nodesDown = []; // Save nodes which are down
   var currentDB = '-nodes-'; // Current selected DB
+  var nodeArr = Array();
 
 // ----------------------
 // - Main Functions -
 // ----------------------
 
+  function resetVars () {
+    nodeArr = [];
+  }
+
   // -- Get and display all nodes and their status --
   function getServers(db) {
-    var nodeRect = {'startX': 0, 'x': 0, 'startY': 0, 'y': 0, 'h': 150, 'w': 150, 'offset': 10, 'color': '#FFF'};
-    var nodeTitle = {'startX': 0, 'x': 0, 'startY': 0, 'y': 0, 'h': 15, 'w': 0, 'offset': 10, 'color': '#000', 'text': 'none'};
-    var rows = 1;
-    nodeArr = []; // Reset Servers Array
-    nodesUp = []; // Save nodes which are up
-    nodesDown = []; // Save nodes which are down
+    resetVars();
 
     docUrl = cloudant_url + '/_membership'; // CouchDB URL for servers
     ajaxGet(docUrl, parse); // Make Request
 
     function parse(data) { // Parse request
       var myData = JSON.parse(data); // Parse data
-
       var nodes = myData.cluster_nodes.length;
-      rows = Math.ceil( ( (nodes+0.5)*(nodeRect.w + nodeRect.offset)) / c.width );
 
-      c.width = $('#wrapper-main').width()-20; // Calculate Canvas width based on total width
-      c.height = rows*(nodeRect.h+nodeRect.offset); // Change canvas height based on number of rows
-      cState = new CanvasState(document.getElementById('nodesCanvas')); // Create new CanvasState
-
-      var y = 0; // Count active(all)_nodes
       for(var x in myData.cluster_nodes) {
-        if(nodeRect.x + nodeRect.w >= 800) { // Check if yPos need to be changed
-          nodeRect.y += nodeRect.h + nodeRect.offset;
-          nodeRect.x = nodeRect.startX; // Reset xPos
-          rows ++;
-        }
+        var currentNode = new Node(x); // Create a new Node Object
+        var nodeColor = "";
+        var nodeTitle = "";
 
         if(myData.cluster_nodes[x] == myData.all_nodes[y]) { // Detect if server is down or not
-          nodeRect.color = "#FFF"; // Boxes Style + Pos
-          nodesUp.push(myData.cluster_nodes[x]);
+          nodeColor = "#FFF"; // Boxes Style + Pos
         }else{
-          nodeRect.color = "#CCC"; // Boxes Style + Pos
-          nodesDown.push(myData.cluster_nodes[x]);
+          nodeColor  = "#CCC"; // Boxes Style + Pos
           y--;
-
         }
 
-        nodeTitle.x = nodeRect.x;
-        nodeTitle.y = nodeRect.y;
-        nodeTitle.text = myData.cluster_nodes[x];
+        nodeTitle = myData.cluster_nodes[x];
+        currentNode.addNode({'title': nodeTitle}); // Add Rectangle
 
-        var currentNode = new Node(x); // Create a new Node Object
-        currentNode.addNode({'shape': nodeRect, 'title': nodeTitle}); // Add Rectangle
-        var btnStop = new cButton({'x': nodeRect.x+10, 'y': nodeRect.y+nodeRect.h-30, 'color': '#CCC', 'size': 14, 'text': 'Shutdown', 'id': x});
+        var btnStop = new cButton({'color': '#CCC', 'text': 'Shutdown', 'id': x});
         btnStop.addListener("foo", function(data) {
           docUrl = "http://"+nodeArr[data.target.getID()].nodeTitle.text+":4730/stop";
           ajaxGet(docUrl, parseIt);
@@ -78,7 +60,7 @@ $( document ).ready(function() {
         });
         currentNode.addButton(btnStop); // Button: x, y, bg-color, textSize, text
 
-        var btnStart = new cButton({'x': currentNode.buttons[0].x+ctx.measureText(currentNode.buttons[0].text).width+40, 'y': nodeRect.y+nodeRect.h-30, 'color': '#CCC', 'size': 14, 'text': 'Start', 'id': x})
+        var btnStart = new cButton({'color': '#CCC', 'text': 'Start', 'id': x})
         btnStart.addListener("foo", function(data) {
           docUrl = "http://"+nodeArr[data.target.getID()].nodeTitle.text+":4730/start";
           ajaxGet(docUrl, parseIt);
@@ -89,16 +71,11 @@ $( document ).ready(function() {
         currentNode.addButton(btnStart); // Button: x, y, bg-color, textSize, text
 
         nodeArr.push(currentNode); // Save the Node Object
-
-        // Change Positions
-        nodeRect.x += nodeRect.w + nodeRect.offset;
         y++;
       }
 
       if( (db == '-nodes-') ) {
-        for(var count in nodeArr) {
-          nodeArr[count].draw(cState); // Draw everything
-        }
+        c.html('Currently no nodes found');
       }else{
         getDbNumber(db); // Now find the Db and the shards
       }
@@ -113,10 +90,10 @@ $( document ).ready(function() {
     function parse(data) {
       var myData = JSON.parse(data);
       var o = 0;
-      while(myData.rows[o].doc._id != db) {
+      while(myData.nodeRows[o].doc._id != db) {
         o++;
       }
-      getShards(myData.rows[o].doc);
+      getShards(myData.nodeRows[o].doc);
     }
   }
 
