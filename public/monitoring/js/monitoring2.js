@@ -48,7 +48,7 @@ $( document ).ready(function() {
         }
 
         nodeTitle = myData.cluster_nodes[x];
-        currentNode.addNode({'title': nodeTitle}); // Add Rectangle
+        currentNode.addNode({'color': "#CCC", 'title': nodeTitle}); // Add Rectangle
 
         var btnStop = new cButton({'color': '#CCC', 'text': 'Shutdown', 'id': x});
         btnStop.addListener("foo", function(data) {
@@ -103,18 +103,13 @@ $( document ).ready(function() {
     var count = 0; // Count to follow up with nodeArr
     for(var nodes in data.by_node) {
       var nodeObject = nodeArr[count].nodeShape;
-      var shardRect = {'x': nodeObject.x+5, 'startY': 25, 'y': nodeObject.y + 25, 'h': 15, 'w': nodeObject.w - 10, 'offset': 2, 'color': '#009933'};
-      var shardTitle = {'x': 0, 'y': 0, 'h': 12, 'w': 0, 'offset': 10, 'color': '#000', 'text': 'none'};
+      var shardTitle = {'text': 'none'};
 
-      for(var shards in data.by_node[nodes]) {
+      for(var shards in data.by_node[nodes]) { // Run trough all shards and add them to the node
         shardTitle.text = data.by_node[nodes][shards];
-        shardTitle.x = shardRect.x;
-        shardTitle.y = shardRect.y;
-        nodeArr[count].addShard( {'rect': shardRect, 'title': shardTitle} );
-
-        shardRect.y += shardRect.h + shardRect.offset;
+        nodeArr[count].addShard( {'title': shardTitle} );
       }
-      nodeArr[count].draw(cState); // Draw everything
+      nodeArr[count].draw(cState); // Draw the complete node
       count++;
     }
 

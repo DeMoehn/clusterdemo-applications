@@ -5,6 +5,7 @@
   // -- Nodes Class --
   function Node(id) {
     this.id = id || 0;
+    this.nodeShape = {};
     this.nodeTitle = {};
     this.shards = []; // Contains object {'rect': shardRect, 'title': shardTitle}
     this.buttons = []; // Contains objects
@@ -13,6 +14,7 @@
   Node.prototype.constructor = Node;
 
   Node.prototype.addNode = function(node) { // Creates a new Node
+    this.nodeShape = $.extend(true, {}, node.color); // $.extend(true,{},obj) used to copy object, not reference!
     this.nodeTitle= $.extend(true, {}, node.title);
   };
 
@@ -25,7 +27,7 @@
   };
 
   Node.prototype.draw = function(cState) {
-    cState.addShape( new Shape(this.nodeShape) );
+    new Shape(this.nodeShape);
     cState.addShape( new Textbox(this.nodeTitle, this.nodeShape.w) );
 
     for(var shard in this.shards) {
@@ -41,38 +43,27 @@
   // -- Shape Class --
   // --- Constructor for Shape objects to hold data for all drawn objects. ---
   function Shape(shapeObj) {
-    this.x = shapeObj.x || 0; // Rect setup
-    this.y = shapeObj.y || 0;
-    this.w = shapeObj.w || 1;
-    this.h = shapeObj.h || 1;
-    this.color = shapeObj.color || '#000';
+    var div = document.createElement("div");
+    div.style.color = shapeObj.color || '#000';
+    div.innerHTML = "";
   }
 
   // --- Draws this shape to a given context ---
   Shape.prototype.draw = function(ctx) {
-    ctx.fillStyle = this.color; // Set color
-    ctx.fillRect(this.x, this.y, this.w, this.h); // Draw Shape
+    ctx.appendChild(this); // Draw Shape
   };
 
   // -- Textbox Class --
   // --- Constructor for Textbox objects to hold data for all drawn objects. ---
-  function Textbox(textObj, rectW) {
-    this.x = textObj.x || 0; // Text setup
-    this.y = textObj.y || 0;
-    this.w = textObj.w || 1;
-    this.h = textObj.h || 12;
-    this.color= textObj.color || '#000';
-    this.text = textObj.text || "None";
-    this.rectW = rectW || 0; // If placed on Box, width of Box
+  function Textbox(textObj) {
+    var div = document.createElement("div");
+    div.style.color = textObj.color || '#000';
+    div.innerHTML =  textObj.text || "None";
   }
 
   // --- Draws this shape to a given context ---
   Textbox.prototype.draw = function(ctx) {
-    ctx.font = this.h+"px Arial"; // Draw Text
-    ctx.fillStyle = this.color;
-    ctx.textAlign = "start";
-    this.w = ctx.measureText(this.text).width;
-    ctx.fillText(this.text, this.x+((this.rectW  - this.w) / 2), this.h+this.y);
+    ctx.appendChild(this); // Draw Shape
   };
 
   // -- Button Class --
