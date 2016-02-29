@@ -28,16 +28,16 @@
 
   Node.prototype.draw = function(cState) {
     new Shape(this.nodeShape);
-    cState.addShape( new Textbox(this.nodeTitle, this.nodeShape.w) );
+    new Textbox(this.nodeTitle);
 
-    for(var shard in this.shards) {
-      cState.addShape( new Shape(this.shards[shard].rect) );
-      cState.addShape( new Textbox(this.shards[shard].title, this.shards[shard].rect.w) );
-    }
-
-    for(var btn in this.buttons) {
-      cState.addClickable(this.buttons[btn]);
-    }
+    // for(var shard in this.shards) {
+    //   cState.addShape( new Shape(this.shards[shard].rect) );
+    //   cState.addShape( new Textbox(this.shards[shard].title, this.shards[shard].rect.w) );
+    // }
+    //
+    // for(var btn in this.buttons) {
+    //   cState.addClickable(this.buttons[btn]);
+    // }
   };
 
   // -- Shape Class --
