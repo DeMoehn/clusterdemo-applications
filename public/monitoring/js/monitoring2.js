@@ -160,32 +160,32 @@ $( document ).ready(function() {
   }
 
   function detectNodeChanges() {
-    docUrl = cloudant_url + '/_membership'; // CouchDB URL for servers
-    ajaxGet(docUrl, parse); // Make Request
-
-    function parse(data) { // Parse request
-    //   var myData = JSON.parse(data); // Parse data
+    // docUrl = cloudant_url + '/_membership'; // CouchDB URL for servers
+    // ajaxGet(docUrl, parse); // Make Request
     //
-    //   var y = 0; // Count active(all)_nodes
-    //   for(var x in myData.cluster_nodes) {
-    //     if(myData.cluster_nodes[x] != myData.all_nodes[y]) { // Detect if server is down or not
-    //       if( nodesDown.indexOf(myData.cluster_nodes[x]) > -1) {
-    //         console.log(myData.cluster_nodes[x]+" is bekannt!");
-    //       }else{
-    //         console.log(myData.cluster_nodes[x]+" war unbekannt");
-    //         getServers(currentDB);
-    //       }
-    //       y--;
-    //     }else{
-    //       if( nodesUp.indexOf(myData.cluster_nodes[x]) > -1) {
-    //         console.log(myData.cluster_nodes[x]+" is bekannt on!");
-    //       }else{
-    //         console.log(myData.cluster_nodes[x]+" war unbekannt on");
-    //         getServers(currentDB);
-    //       }
-    //     }
-    //     y++;
-    //   }
+    // function parse(data) { // Parse request
+    // //   var myData = JSON.parse(data); // Parse data
+    // //
+    // //   var y = 0; // Count active(all)_nodes
+    // //   for(var x in myData.cluster_nodes) {
+    // //     if(myData.cluster_nodes[x] != myData.all_nodes[y]) { // Detect if server is down or not
+    // //       if( nodesDown.indexOf(myData.cluster_nodes[x]) > -1) {
+    // //         console.log(myData.cluster_nodes[x]+" is bekannt!");
+    // //       }else{
+    // //         console.log(myData.cluster_nodes[x]+" war unbekannt");
+    // //         getServers(currentDB);
+    // //       }
+    // //       y--;
+    // //     }else{
+    // //       if( nodesUp.indexOf(myData.cluster_nodes[x]) > -1) {
+    // //         console.log(myData.cluster_nodes[x]+" is bekannt on!");
+    // //       }else{
+    // //         console.log(myData.cluster_nodes[x]+" war unbekannt on");
+    // //         getServers(currentDB);
+    // //       }
+    // //     }
+    // //     y++;
+    // //   }
     // }
   }
 
