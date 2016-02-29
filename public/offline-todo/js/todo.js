@@ -25,7 +25,6 @@ $( document ).ready(function() {
     since: 'now',
     live: true
   }).on('change', function (change) {
-    console.log("CHANGES!");
     changesChanging(change);
   }).on('error', function (err) {
     changesError(err);
