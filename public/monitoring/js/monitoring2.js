@@ -89,12 +89,11 @@ $( document ).ready(function() {
 
     function parse(data) {
       var myData = JSON.parse(data);
-      console.log(myData);
       var o = 0;
-      while(myData.nodeRows[o].doc._id != db) {
+      while(myData.rows[o].doc._id != db) {
         o++;
       }
-      getShards(myData.nodeRows[o].doc);
+      getShards(myData.rows[o].doc);
     }
   }
 
