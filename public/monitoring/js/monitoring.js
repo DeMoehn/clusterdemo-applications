@@ -71,7 +71,7 @@ $( document ).ready(function() {
 
         var currentNode = new Node(x); // Create a new Node Object
         currentNode.addNode({'shape': nodeRect, 'title': nodeTitle}); // Add Rectangle
-        var btnStop = new cButton({'x': nodeRect.x+10, 'y': nodeRect.y+nodeRect.h-30, 'color': '#CCC', 'size': 14, 'text': 'Shutdown', 'id': x})
+        var btnStop = new cButton({'x': nodeRect.x+10, 'y': nodeRect.y+nodeRect.h-30, 'color': '#CCC', 'size': 14, 'text': 'Shutdown', 'id': x});
         btnStop.addListener("foo", function(data) {
           docUrl = "http://"+nodeArr[data.target.getID()].nodeTitle.text+":4730/stop";
           ajaxGet(docUrl, parseIt);
