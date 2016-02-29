@@ -1,0 +1,4 @@
+accountname='ACCOUNTNAME';
+user='USER/APIKEY';
+pass='PW/APIKEY';
+db='DB';

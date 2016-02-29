@@ -1,0 +1,49 @@
+/*General Setup*/
+html, body {
+  font-size: 14px;
+  background-color: #d9d9d9;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+/*Links*/
+a {
+  color: #008EBD;
+}
+
+a:hover {
+  color: #005A78;
+}
+
+a:visited {
+  color: #00A8E0;
+}
+
+/*Classes*/
+.centered {
+  font-size: 18px;
+  background-color: #FFF;
+  padding: 10px;
+  border-radius: 8px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+}
+
+/*IDs*/
+#greeting {
+  color: #0000ff;
+  font-size: 120px;
+}
+
+#message {
+  color: #4d4dff;
+  font-size: 80px;
+}
+
+#distance-result {
+  padding-top: 30px;
+  font-size: 30px;
+}

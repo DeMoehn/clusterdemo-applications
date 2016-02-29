@@ -1,0 +1,171 @@
+/*General Setup*/
+
+* {
+	margin: 0;
+}
+
+html, body {
+  height:100%;
+  width: 100%;
+}
+
+body {
+  font-size: 14px;
+  background-color: #FFF;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+/*Links*/
+a {
+  color: #008EBD;
+}
+
+a:hover {
+  color: #005A78;
+}
+
+a:visited {
+  color: #00A8E0;
+}
+
+/* Wrapper */
+
+.wrapper-logo {
+  background-color: #FFF;
+  position: fixed;
+  z-index:9999;
+  width: 100%;
+  height: 105px;
+  top: 0;
+  left: 0;
+  border-bottom: 4px solid #8CD7F6;
+  text-align: center;
+  padding-top: 15px;
+}
+
+.wrapper {
+  background-color: #FFF;
+  align-content: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index:1;
+  top: 124px;
+  left: 0;
+}
+
+.wrapper-messages {
+  background: #45a3d6;
+  background: -moz-linear-gradient(top,  #45a3d6 0%, #007db7 100%);
+  background: -webkit-linear-gradient(top,  #45a3d6 0%,#007db7 100%);
+  background: linear-gradient(to bottom,  #45a3d6 0%,#007db7 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45a3d6', endColorstr='#007db7',GradientType=0 );
+  padding-top: 20px;
+  padding-bottom: 20px;
+  height: 230px;
+}
+
+.wrapper-averages {
+  color: #002C77;
+  background: #F0F0F3;
+  width: 100%;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.wrapper-distance {
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.wrapper-temp {
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-left: 1px solid #B7BFC0;
+  border-right: 1px solid #B7BFC0;
+}
+
+.wrapper-hum {
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.wrapper-datapoints {
+  width: 100%;
+  background: #002C77;
+  padding-top: 30px;
+  padding-bottom: 25px;
+}
+
+.wrapper-chart {
+  width: 100%;
+  background: #F9F9F9;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.chart {
+  height: 350px;
+  width: 50%;
+  background: #F9F9F9;
+}
+
+.wrapper-footer {
+  height: 100px;
+  width: 100%;
+  background: #333333;
+}
+
+.box {
+  display: inline-block;
+  align-content: center;
+  text-align: center;
+}
+
+.title {
+  font-size: 30px;
+  font-weight: bold;
+  color: #004B8D;
+}
+
+.dataptitle {
+  font-size: 50px;
+  font-weight: bold;
+  color: #FFF;
+  margin: -20px;
+  padding: 0;
+}
+
+.datapsub {
+  font-size: 30px;
+  color: #FFF;
+  margin: 0;
+  padding: 0;
+}
+
+.larger {
+  font-size: 30px;
+  text-transform: uppercase;
+}
+
+.smaller {
+  font-size: 18px;
+}
+
+/*IDs*/
+#greeting {
+  color: #FFF;
+  font-size: 120px;
+}
+
+#message {
+  color: #FFF;
+  font-size: 50px;
+}

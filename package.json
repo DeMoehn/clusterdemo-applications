@@ -1,0 +1,19 @@
+{
+  "name": "Distance",
+  "version": "1.2.0",
+  "description": "Measures sensor data with RaPi",
+  "main": "measure.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sebastian Moehn",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.3",
+    "math-statistics": "*",
+    "r-pi-usonic": "*",
+    "node-dht-sensor": "*",
+    "socket.io": "*",
+    "cradle": "*"
+  }
+}

@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en"> <!--  manifest="example.appcache" -->
+  <head>
+    <!-- META Tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Cloudant Offline ToDo List">
+    <meta name="author" content="Sebastian Moehn">
+    <title>Cloudant Offline ToDo</title>
+    <!-- Apple Tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- SCRIPTS -->
+    <script src="offline-todo/src/jquery-2.1.4.min.js" type="application/javascript"></script>
+	  <script src="offline-todo/src/KelpJSONView.js" type="application/javascript"></script>
+    <script src="offline-todo/src/pouchdb-4.0.0.min.js" type="application/javascript"></script>
+    <script src="offline-todo/js/config" type="application/javascript" ></script>
+    <!-- CSS -->
+    <link href="offline-todo/src/KelpJSONView.css" rel="stylesheet" type="text/css"/>
+    <link href="offline-todo/css/style.css" rel="stylesheet" type="text/css">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/png" href="offline-todo/img/favicon.ico"/>
+  </head>
+
+  <body>
+    <div id="online">
+      <div id="status">•</div><div id="online_status">Status</div>
+    </div>
+    <!-- Container for every Content -->
+	   <div id="totalwrapper">
+       <!-- Header -->
+       <div id="wrapper-top">
+         <table><tr>
+           <td><img id="logo" src="offline-todo/img/cloudant.png" width="364" height="115"></td>
+           <td><div id="title"><b>Cloudant Offline ToDo-List</b></div></td></tr>
+          </table>
+        </div>
+
+        <!-- Status Container -->
+        <div id="wrapper-status">
+          <div id="toodle"></div>
+        </div>
+
+        <!-- Tab container -->
+        <div id="wrapper-tabs">
+          <div id="default" class="tab" >default</div>
+          <div id="plustab" class="plustab">+</div>
+        </div>
+
+        <!-- Center container -->
+        <div id="wrapper-left">
+
+          <!-- See ToDos -->
+          <div class="title-medium">ToDos:</div>
+          <div class="title-content">
+            <ul class="todo-list"></ul>
+          </div>
+
+          <!-- Enter ToDos -->
+          <div class="title-medium">Manage ToDos:</div>
+          <div class="title-content">
+            <div style="float:left">
+              <div class="title-medium" id="enterdetails">Enter Details:</div>
+              <div><input id="todo_input" placeholder="Enter your ToDo" class="todo_input input"></div>
+              <div><textarea  id="text_input" placeholder="Enter your Comment" class="text_input input"></textarea></div>
+            </div>
+            <div style="float:left;margin-left:20px">
+              <div class="title-medium">Choose a Color:</div>
+              <div class="color_circles">
+                <div class="circle black" value="black"></div>
+                <div class="circle red" value="red"></div>
+                <div class="circle orange" value="orange"></div>
+                <div class="circle green" value="green"></div>
+              </div>
+            </div>
+            <div style="clear: both"></div>
+            <div>
+              <button type="button" id="sendtodo" class="btn" value="save">Save ToDo</button>
+              <button type="button" id="canceltodo" class="btn">Cancel Editing</button>
+            </div>
+          </div>
+
+          <!-- Manage Sync -->
+          <div class="title-medium" style="margin-top:10px">Manage Sync:</div>
+          <div class="title-content">
+            <button type="button" id="syncbtn" class="btn">Manual Sync</button>
+            <button type="button" id="syncfrombtn" class="btn">Manual Sync from db</button>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <div id="wrapper-down">
+          <div id="output">
+            <div class="title-medium" style="margin-top:-30px;">Database Actions:</div>
+            <div id="cloudant-response2" style="margin-bottom:10px;"><p><pre id="output-resp"></pre></p></div>
+            <div class="title-medium">Database Response:</div>
+            <div id="cloudant-response" style="margin-bottom:10px;"><p><pre id="output-data"></pre></p></div>
+            <div class="title-medium">Sync Response:</div>
+            <div id="cloudant-response3"><p><pre id="output-sync"></pre></p></div>
+          </div>
+        </div>
+
+        <div id="floatclear"></div>
+    </div>
+
+    <!-- Preload images from CSS -->
+    <div id="preload">
+     <img src="offline-todo/img/checkmark.png" width="1" height="1" alt="Preload Image 01" />
+     <img src="offline-todo/img/checkbox_off.png" width="1" height="1" alt="Preload Image 02" />
+     <img src="offline-todo/img/checkbox_on.png" width="1" height="1" alt="Preload Image 03" />
+     <img src="offline-todo/img/delete_icon.png" width="1" height="1" alt="Preload Image 04" />
+     <img src="offline-todo/img/delete_hover.png" width="1" height="1" alt="Preload Image 05" />
+     <img src="offline-todo/img/edit_icon.png" width="1" height="1" alt="Preload Image 06" />
+     <img src="offline-todo/img/edit_hover.png" width="1" height="1" alt="Preload Image 07" />
+   </div>
+
+  <script src="offline-todo/js/todo.js" type="application/javascript"></script>
+  </body>
+</html>

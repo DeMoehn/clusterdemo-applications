@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en"> <!--  manifest="example.appcache" -->
+  <head>
+    <!-- META Tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Cloudant Cluster Monitoring">
+    <meta name="author" content="Sebastian Moehn">
+    <title>Cluster Monitoring</title>
+    <!-- Apple Tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- SCRIPTS -->
+    <script src="monitoring/src/jquery-2.1.4.min.js" type="application/javascript"></script>
+    <script src="monitoring/js/shapes.js" type="application/javascript"></script>
+    <!-- CSS -->
+    <link href="monitoring/css/style.css" rel="stylesheet" type="text/css">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/png" href="img/favicon.ico"/>
+  </head>
+
+  <body>
+    <!-- Container for every Content -->
+	   <div id="totalwrapper">
+       <!-- Header -->
+       <div id="wrapper-top">
+         <table><tr>
+           <td><img id="logo" src="monitoring/img/cloudant.png" width="364" height="115"></td>
+           <td><div id="title"><b>Cluster Monitoring</b></div></td></tr>
+          </table>
+        </div>
+
+        <!-- Status Container -->
+        <div id="wrapper-status">
+          <div id="toodle"></div>
+        </div>
+
+        <!-- Main Container -->
+        <div id="wrapper-main">
+          <div id="dropdown-container">
+            <div class="title-content">Select database</div>
+            <select id="dbs-dropdown" name="dbs-dropdown" class="input">
+              <option value="-nodes-">Only Servers</option>
+            </select>
+            <div id="additional_info"></div>
+          </div>
+          <div id="nodes-container">
+            <div class="title-content">Cluster Nodes</div>
+            <div id="nodes"></div>
+              <canvas id="nodesCanvas">
+              </canvas>
+          </div>
+        </div>
+
+      </div>
+
+  <script src="monitoring/js/monitoring.js" type="application/javascript"></script>
+  </body>
+</html>

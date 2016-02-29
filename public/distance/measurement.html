@@ -1,0 +1,74 @@
+<!doctype html>
+<html  lang="en">
+  <head>
+    <!-- META Tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Cloudant Raspberry Pi Cluster Overview">
+    <meta name="author" content="Sebastian Moehn">
+    <title>Cluster Visualization</title>
+    <!-- Apple Tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- SCRIPTS -->
+    <script src="distance/js/jquery-2.1.4.min.js"></script>
+    <script src="distance/js/socket.io.js"></script>
+    <script src="distance/js/canvasjs.min.js"></script>
+    <script src="distance/js/client.js"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="distance/css/style.css">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/png" href="img/favicon.ico"/>
+  </head>
+  <body>
+
+    <div id="logo" class="wrapper-logo">
+      <table class="box"><tr>
+        <td><img id="logos" src="distance/img/cloudant.png" width="364" height="82"></td>
+        <td><div id="title" class="title">Cluster Visualization</div></td></tr>
+      </table>
+    </div>
+
+    <div class="wrapper">
+      <div id="messages" class="wrapper-messages">
+        <div id="greeting" class="box">Hello!</div><br/>
+        <div id="message" class="box">...</div><br/>
+      </div>
+
+      <div id="averages" class="wrapper-averages">
+        <div id ="distance" class="wrapper-distance box">
+          <div id="distance-result" class="larger">Distance: 0.00 cm</div>
+          <div id="distance-avg" class="smaller">(Average: 0.00 cm, Min: 0 cm, Max: 0 cm)</div>
+        </div>
+
+        <div id="temp" class="wrapper-temp box">
+          <div id="temp-result" class="larger">Temperature: 27.00 °C</div>
+          <div id="temp-avg">
+            <div id="temp-avg-temp" class="smaller">(Average: 0.00 °C, Min: 0.00 °C, Max: 0.00 °C)</div>
+          </div>
+        </div>
+
+        <div id="hum" class="wrapper-hum box">
+          <div id="hum-result" class="larger">Humidity: 0.00 %</div>
+          <div id="hum-avg">
+            <div id="hum-avg-hum" class="smaller">(Average: 0 %, Min: 0 %, Max: 0 %)</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="datapoints" class="wrapper-datapoints">
+        <div><div id="dataptitle" class="dataptitle">0.0</div><br /><div class="datapsub">Datapoints</div></div>
+      </div>
+
+      <div id="chart" class="wrapper-chart">
+        <div id="chartContainer" class="chart box"></div>
+      </div>
+
+      <div id="footer" class="wrapper-footer">
+        Test
+      </div>
+    </div>
+
+  </body>
+</html>
