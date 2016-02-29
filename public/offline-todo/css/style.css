@@ -1,12 +1,19 @@
+/*General Setup*/
+
 * {
 	margin: 0;
 }
 
+html, body {
+  height:100%;
+  width: 100%;
+}
+
 body {
-	background-color: #666;
-	color: #333333;
-	font-size:13px;
-	font-family: "Helvetica Neue", Gotham, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  background-color: #666;
+	color: #333;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
 
 /* Styles */
@@ -58,7 +65,7 @@ body {
 #title {
 	height: 104px;
 	margin-left: 70px;
-	color: #FFFFFF;
+	color: #004B8D;
 	font-family: "Helvetica Neue", Gotham, Helvetica, Arial, sans-serif;
 	font-weight: bold;
 	font-size: 30px;
