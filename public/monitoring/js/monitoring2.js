@@ -71,7 +71,7 @@ $( document ).ready(function() {
         currentNode.addButton(btnStart); // Button: x, y, bg-color, textSize, text
 
         nodeArr.push(currentNode); // Save the Node Object
-        y++;
+        //y++;
       }
 
       if( (db == '-nodes-') ) {
