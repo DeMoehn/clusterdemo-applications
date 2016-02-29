@@ -11,6 +11,8 @@ $( document ).ready(function() {
 
   // -- Canvas Setup --
   var c = $('#nodesCanvas'); // Get Canvas
+  var ctx = c;
+  var cState = ctx; // CanvasState Variable
 
   // -- Variables setup --
   var currentDB = '-nodes-'; // Current selected DB
