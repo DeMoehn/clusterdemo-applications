@@ -89,6 +89,7 @@ $( document ).ready(function() {
 
     function parse(data) {
       var myData = JSON.parse(data);
+      console.log(myData);
       var o = 0;
       while(myData.nodeRows[o].doc._id != db) {
         o++;
