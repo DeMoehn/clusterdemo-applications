@@ -36,6 +36,7 @@ $( document ).ready(function() {
     function parse(data) { // Parse request
       var myData = JSON.parse(data); // Parse data
       var nodes = myData.cluster_nodes.length;
+      cState = new CanvasState($('#nodesCanvas')); // Create new CanvasState
 
       for(var x in myData.cluster_nodes) {
         var currentNode = new Node(x); // Create a new Node Object
