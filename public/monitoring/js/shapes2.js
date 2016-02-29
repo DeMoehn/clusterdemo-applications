@@ -148,6 +148,7 @@
     var html = document.body.parentNode;
     this.htmlTop = html.offsetTop;
     this.htmlLeft = html.offsetLeft;
+    this.ctx = canvas;
 
     // Track the state
     this.valid = false; // When set to false, the canvas will redraw everything
@@ -185,7 +186,7 @@
   CanvasState.prototype.draw = function() {
     // if our state is invalid, redraw and validate!
     if (!this.valid) {
-      var ctx = this.ctx;
+      ctx = this.ctx;
       var shapes = this.shapes;
 
       // draw all shapes
